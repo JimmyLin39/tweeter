@@ -1,14 +1,17 @@
 $(document).ready(function(){
 	
-	var num = 140;
+	var maxNum = 140;
 	var $tweet = $('.new-tweet textarea');
 	// Add listener
 	$tweet.on('keyup', function(event){
 		var $counter = $($(this).next().next()); //$('span.counter');
-// 		num--;
 		//change the counter 
-		$counter.text(num - $(this).val().length);
-		console.log($(this).val().length);
+		var $counterVal = maxNum - $(this).val().length;
+		$counter.text($counterVal);
+		console.log($counterVal);
+		if($counterVal < 0) {
+			$counter.css({'color': 'red'});
+		}
 	});
 
 	
