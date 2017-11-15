@@ -4,7 +4,7 @@ function handleNewTweet(event) {
   event.preventDefault();
   // console.log('success');
   const $tweeterForm = $(this).find('textarea'); //.serialize();
-  console.log($tweeterForm);
+  // console.log($tweeterForm);
   // give error when tweet content not present 
   if($tweeterForm.val() === '') {
     $(this).append($(`<h3>Please tweet something!</h3>`));
@@ -12,13 +12,18 @@ function handleNewTweet(event) {
   } else if($tweeterForm.val().length > 140){
     $(this).append($(`<h3>Your tweet is too long!</h3>`));
   } else {
-
-
+    $.ajax({
+      url: '/tweets',
+      method: 'POST',
+      data: $tweeterForm.serialize()
+    })
+      .done(() => {
+        // Refetch tweets again
+        loadTweets();
+      })
 
   }
-
 }
-
 
 // fetching tweets from the /tweets page
 function loadTweets() {
@@ -36,10 +41,10 @@ function renderTweets(allTweets) {
   // loops through tweets
     // calls createTweetElement for each tweet
     // takes return value and appends it to the tweets container
-  let $section = $('#archive-tweet');
+  let $section = $('#archive-tweet').empty();
   allTweets.forEach(element => {
     // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-    $section.append(createTweetElement(element)); 
+    $section.prepend(createTweetElement(element)); 
   });
 };
 
@@ -71,7 +76,8 @@ function createTweetElement(tweet) {
  */
 // doc ready
 $(() => {
+  loadTweets();
   const $tweeterForm = $('.new-tweet form');
   $tweeterForm.on('submit', handleNewTweet);
-  loadTweets();
+  
 });
