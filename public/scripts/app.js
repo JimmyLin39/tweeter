@@ -57,7 +57,11 @@ function createTweetElement(tweet) {
         <span class="userId">${tweet.user.handle}</span>
       </header>
       <p>${tweet.content.text}</p>
-      <footer>${tweet.created_at}</footer>
+      <footer>${tweet.created_at}
+        <i class="fa fa-heart" aria-hidden="true"></i>
+        <i class="fa fa-retweet" aria-hidden="true"></i>
+        <i class="fa fa-flag" aria-hidden="true"></i>
+      </footer>
     </article>`
   );
 };
