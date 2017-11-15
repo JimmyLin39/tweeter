@@ -3,9 +3,19 @@
 function handleNewTweet(event) {
   event.preventDefault();
   // console.log('success');
-  // give error when tweet content is too long or not present 
-  const $tweeterForm = $(this).serialize();
+  const $tweeterForm = $(this).find('textarea'); //.serialize();
   console.log($tweeterForm);
+  // give error when tweet content not present 
+  if($tweeterForm.val() === '') {
+    $(this).append($(`<h3>Please tweet something!</h3>`));
+  // give error when tweet content is too long
+  } else if($tweeterForm.val().length > 140){
+    $(this).append($(`<h3>Your tweet is too long!</h3>`));
+  } else {
+
+
+
+  }
 
 }
 
