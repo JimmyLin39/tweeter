@@ -5,10 +5,11 @@ $(document).ready(function(){
 	// Add listener
 	$tweet.on('keyup', function(event){
 		var $counter = $($(this).next().next()); //$('span.counter');
-		//change the counter 
+		// find the counter value
 		var $counterVal = maxNum - $(this).val().length;
+		// update the counter value
 		$counter.text($counterVal);
-		console.log($counterVal);
+		// appear red when exceed the 140 limit
 		if($counterVal < 0) {
 			$counter.css({'color': 'red'});
 		}
