@@ -27,7 +27,14 @@
   background-color: #e8fdff;
   color: #00a087;
   float: right;
-  height: 45px;
-  margin-top: 20px;
-  width: 100px;
+  padding: 15px 32px;
+  font-size: 20px;
+  margin-top: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+
+#nav-bar button:hover {
+  background-color: white;
+  color: black;
 }
