@@ -1,0 +1,37 @@
+article.tweet {
+  border-radius: 5px;
+  border: 2px solid #c0c0c0;
+  margin: 0.5em 2em;
+}
+
+
+article.tweet header {
+  background-color: #eee;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+article.tweet header img {
+  border-radius: 5px;
+  float: left;
+}
+
+article.tweet h2.userName {
+  margin-top: 0px;
+  margin-left: 60px;
+}
+
+article.tweet span.userId {
+  color: gray;
+}
+
+article.tweet p{
+  margin: 20px;
+  font-size: 20px;
+}
+
+article.tweet footer {
+  border-top: solid 1.5px #eee;
+  padding: 5px;
+}
