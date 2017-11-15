@@ -1,4 +1,3 @@
-
 // handle the new tweet after user click the submit button
 function handleNewTweet(event) {
   event.preventDefault();
@@ -21,7 +20,6 @@ function handleNewTweet(event) {
         // Refetch tweets again
         loadTweets();
       })
-
   }
 }
 
