@@ -35,3 +35,9 @@ article.tweet footer {
   border-top: solid 1.5px #eee;
   padding: 5px;
 }
+
+article.tweet footer i{
+  margin: 3px;
+  float: right;
+  color: #00a087;
+}
