@@ -5,11 +5,12 @@ function handleNewTweet(event) {
   const $tweeterForm = $(this).find('textarea'); //.serialize();
   // console.log($tweeterForm);
   // give error when tweet content not present 
+  $(this).find('.errorMessage').empty();
   if($tweeterForm.val() === '') {
-    $(this).append($(`<h3>Please tweet something!</h3>`));
+    $(this).append($(`<h3 class='errorMessage'>Please tweet something!</h3>`));
   // give error when tweet content is too long
   } else if($tweeterForm.val().length > 140){
-    $(this).append($(`<h3>Your tweet is too long!</h3>`));
+    $(this).append($(`<h3 class='errorMessage'>Your tweet is too long!</h3>`));
   } else {
     $.ajax({
       url: '/tweets',
