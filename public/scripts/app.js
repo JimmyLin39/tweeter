@@ -2,24 +2,29 @@
 function handleNewTweet(event) {
   event.preventDefault();
   // console.log('success');
-  const $tweeterForm = $(this).find('textarea'); //.serialize();
+  const $form = $(this);
+  const $error = $form.find('.errorMessage');
+  const $tweeterForm = $form.find('textarea');
   // console.log($tweeterForm);
   // give error when tweet content not present 
-  $(this).find('.errorMessage').empty();
+  $error.empty();
   if($tweeterForm.val() === '') {
-    $(this).append($(`<h3 class='errorMessage'>Please tweet something!</h3>`));
+    $error.html(`<h3>Please tweet something!</h3>`);
   // give error when tweet content is too long
   } else if($tweeterForm.val().length > 140){
-    $(this).append($(`<h3 class='errorMessage'>Your tweet is too long!</h3>`));
+    $error.html(`<h3>Your tweet is too long!</h3>`);
   } else {
     $.ajax({
       url: '/tweets',
       method: 'POST',
-      data: $tweeterForm.serialize()
+      data: $form.serialize()
     })
       .done(() => {
         // Refetch tweets again
         loadTweets();
+        $tweeterForm.val('');
+        // reset counter
+        $form.find('.counter').text('140');
       })
   }
 }
