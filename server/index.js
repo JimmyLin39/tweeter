@@ -9,6 +9,24 @@ const app           = express();
 const MongoClient = require("mongodb").MongoClient;
 const MONGODB_URL = "mongodb://localhost:27017/tweeter";
 
+// sass setup
+// Recompile .scss or .sass files automatically for connect and express based http servers.
+const sassMiddleware = require('node-sass-middleware');
+const path = require('path');
+console.log(__dirname);
+app.use(sassMiddleware({
+
+    /* Options */
+    src: __dirname + '/../sass',
+    dest: __dirname + '/../public/styles',
+    debug: true,
+    outputStyle: 'compressed',
+    prefix: '/styles'
+}));
+// Note: you must place sass-middleware *before* `express.static` or else it will
+// not work.
+app.use('/public', express.static(path.join(__dirname, 'public')));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
