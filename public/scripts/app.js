@@ -1,11 +1,10 @@
 // handle the new tweet after user click the submit button
 function handleNewTweet(event) {
   event.preventDefault();
-  // console.log('success');
   const $form = $(this);
   const $error = $form.find('.errorMessage');
   const $tweeterForm = $form.find('textarea');
-  // console.log($tweeterForm);
+
   // give error when tweet content not present 
   $error.empty();
   if($tweeterForm.val() === '') {
@@ -23,7 +22,7 @@ function handleNewTweet(event) {
         // Refetch tweets again
         loadTweets();
         $tweeterForm.val('');
-        // reset counter
+        // Reset counter
         $form.find('.counter').text('140');
       })
   }
@@ -85,5 +84,4 @@ $(() => {
   loadTweets();
   const $tweeterForm = $('.new-tweet form');
   $tweeterForm.on('submit', handleNewTweet);
-  
 });
