@@ -1,0 +1,47 @@
+$primary-color: #00a087;
+$contast-color: #e8fdff;
+
+#nav-bar {
+  background-color: $primary-color;
+  color: $contast-color;
+  height: 80px;
+  left: 0;
+  padding: 0px 2em;
+  position: fixed;
+  right: 0;
+  top: 0;
+
+  .logo {
+    float: left;
+    height: 80px;
+    width: 80px;
+  }
+
+  .header {
+    font-size: 200%;
+    line-height: 250%;
+    padding-left: 10px;
+  }
+
+  button {
+    border-radius: 5px;
+    border: 1.5px solid black;
+    background-color: $contast-color;
+    color: $primary-color;
+    float: right;
+    padding: 15px 32px;
+    font-size: 20px;
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+
+    :hover {
+      background-color: white;
+      color: black;
+    }
+
+  }
+
+
+}
+
