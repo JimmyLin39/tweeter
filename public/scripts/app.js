@@ -54,6 +54,8 @@ function renderTweets(allTweets) {
 
 // generate the DOM structure 
 function createTweetElement(tweet) {
+  // use Moment.js to display relative time
+  const created_ago = moment(tweet.created_at).fromNow();
   return $(
     `<article class="tweet">
       <header>
@@ -64,7 +66,7 @@ function createTweetElement(tweet) {
         <span class="userId">${tweet.user.handle}</span>
       </header>
       <p>${tweet.content.text}</p>
-      <footer>${tweet.created_at}
+      <footer>${created_ago}
         <i class="fa fa-heart" aria-hidden="true"></i>
         <i class="fa fa-retweet" aria-hidden="true"></i>
         <i class="fa fa-flag" aria-hidden="true"></i>
